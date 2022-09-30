@@ -29,11 +29,5 @@ sh "echo Start of Nexus"
 sh "mvn deploy"
 }
 }
-stage('5.DeploytoTomcat'){
-steps{
-sh "echo Start of Tomcat"
-deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://52.91.103.246:8080/')], contextPath: null, onFailure: false, war: 'target/*war'
-}
-}
 }
 }
